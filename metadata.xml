@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <name>Four-Dimensional Pocket/四次元口袋</name>
+    <directory>four-dimensional pocket</directory>
+    <id>2538486836</id>
+    <description>
+Have you visited the entire map for a long time to find and transfer pickups because of playing d20 or Insufficient blood for sacrifice?
+
+Do you find it troublesome to pick up great amount of drops ?
+
+Try this &quot;Four-Dimensional Pocket&quot; MOD!
+
+Press the I key to catch pickups all in the room !
+
+Press the O key to pour them out of the pocket!
+
+
+CAUTIONS:
+
+Due to balance considerations, 4d pockets currently only support used in
+
+DEFAUL ROOM
+SUPERSECRET_ROOM
+SECRET_ROOM
+SACRIFICE_ROOM
+
+
+
+this mod only has been tested on rep
+
+According to your feedback, there may be further updates
+
+==============================================
+你有因为玩d20或者因为缺血献祭而绕遍整个地图吗
+
+你觉得捡很多掉落物时麻烦吗
+
+试试这个四次元口袋!
+
+按下I键捡起房间里的所有掉落!
+
+按下O键倒出口袋里的所有东西!
+
+
+请注意:
+
+由于平衡性的考虑,目前只支持在
+
+普通房
+
+隐藏房
+
+超级隐藏房
+
+献祭房 使用四维口袋
+
+
+
+这个mod只在忏悔上测试过
+
+以后可能会根据阁下们的反馈进行后续的更新
+======
+
+update log  7/8: save pocket data after exiting game</description>
+    <version>1.4</version>
+    <visibility>Public</visibility>
+    <tag id="Lua"/>
+</metadata>
