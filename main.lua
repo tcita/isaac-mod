@@ -79,6 +79,7 @@ local function filter(e,tb)
     or e.Variant == PickupVariant.PICKUP_WOODENCHEST	
     or e.Variant == PickupVariant.PICKUP_MEGACHEST	
     or e.Variant == PickupVariant.PICKUP_HAUNTEDCHEST
+    or e.Variant == PickupVariant.PICKUP_LOCKEDCHEST
     
     then
          
