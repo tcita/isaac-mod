@@ -69,7 +69,16 @@ local function filter(e,tb)
     or e.Variant == PickupVariant.PICKUP_TAROTCARD
     or e.Variant == PickupVariant.PICKUP_TRINKET
     -- or e.Variant == PickupVariant.PICKUP_TROPHY
-    
+    or e.Variant == PickupVariant.PICKUP_COLLECTIBLE
+    or e.Variant == PickupVariant.PICKUP_CHEST	
+    or e.Variant == PickupVariant.PICKUP_BOMBCHEST	
+    or e.Variant == PickupVariant.PICKUP_SPIKEDCHEST	
+    or e.Variant == PickupVariant.PICKUP_ETERNALCHEST	
+    or e.Variant == PickupVariant.PICKUP_MIMICCHEST	
+    or e.Variant == PickupVariant.PICKUP_OLDCHEST	
+    or e.Variant == PickupVariant.PICKUP_WOODENCHEST	
+    or e.Variant == PickupVariant.PICKUP_MEGACHEST	
+    or e.Variant == PickupVariant.PICKUP_HAUNTEDCHEST
     
     then
          
@@ -88,14 +97,21 @@ local function get()
 
 
     for _, i in pairs(mytable_t) do
-        if i.Type == EntityType.ENTITY_PICKUP then
-            mytable=filter(i,mytable)
-            -- print(i.Type)
-            -- print(i.Variant)
-            -- print(i.SubType)
-            -- print('\n')
-            
-            i:ToPickup ():PlayPickupSound()            
+        
+        -- i.Type ==5 and i.Variant==100 and i.SubType==0  -> bottom of item
+        if (i.Type == EntityType.ENTITY_PICKUP and not(i.Type ==5 and i.Variant==100 and i.SubType==0)) then
+            local item=i:ToPickup()
+            local shopitem=item:IsShopItem()
+            if not shopitem then
+                mytable=filter(i,mytable)
+                -- print(i.Type)
+                -- print(i.Variant)
+                -- print(i.SubType)
+                -- print('\n')
+                
+
+                i:ToPickup ():PlayPickupSound()   
+            end         
         end    
     end
     -- print("get")
@@ -116,11 +132,7 @@ local function get()
             k=k+1 
             -- print("loop:",i)
         end
-        -- for i, v in pairs(PICKUP_table) do
-        --     print(v)
-        --     print("loop2:",i)
-            
-        -- end
+
         RD=true
         
         fDp:SaveData(json.encode(PICKUP_table)) 
@@ -160,12 +172,13 @@ end)
 fDp:AddCallback(ModCallbacks.MC_POST_UPDATE, function ()
         
    
-    if (Game():GetRoom():GetType ())==RoomType.ROOM_DEFAULT
-    or (Game():GetRoom():GetType ())==RoomType.ROOM_SUPERSECRET
-    or (Game():GetRoom():GetType ())==RoomType.ROOM_SECRET
-    or (Game():GetRoom():GetType ())==RoomType.ROOM_SACRIFICE
+    -- if (Game():GetRoom():GetType ())==RoomType.ROOM_DEFAULT
+    -- or (Game():GetRoom():GetType ())==RoomType.ROOM_SUPERSECRET
+    -- or (Game():GetRoom():GetType ())==RoomType.ROOM_SECRET
+    -- or (Game():GetRoom():GetType ())==RoomType.ROOM_SACRIFICE
+    -- or (Game():GetRoom():GetType ())==RoomType.ROOM_TREASURE
     
-    then
+    -- then
 
     
         if Input.IsButtonPressed(Keyboard.KEY_I, 0)  then
@@ -188,8 +201,10 @@ fDp:AddCallback(ModCallbacks.MC_POST_UPDATE, function ()
             mytable = {}
             fDp:RemoveData ()
         end
-    end
+    -- end
 end)
+
+
 
 
 
